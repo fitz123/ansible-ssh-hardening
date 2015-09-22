@@ -214,14 +214,14 @@ PrintLastLog {{ yes if ssh_print_last_log else 'no' }}
 # Configuration, in case SFTP is used
 ## override default of no subsystems
 ## Subsystem sftp /opt/app/openssh5/libexec/sftp-server
-#Subsystem sftp internal-sftp -l VERBOSE
+Subsystem sftp internal-sftp -l INFO -f LOCAL6
 #
 ## These lines must appear at the *end* of sshd_config
-#Match Group sftponly
-#ForceCommand internal-sftp -l VERBOSE
-#ChrootDirectory /sftpchroot/home/%u
-#AllowTcpForwarding no
-#AllowAgentForwarding no
-#PasswordAuthentication no
-#PermitRootLogin no
-#X11Forwarding no
+Match Group sftponly
+ForceCommand internal-sftp -l INFO -f LOCAL6
+ChrootDirectory /home/{{ app }}
+AllowTcpForwarding no
+AllowAgentForwarding no
+PasswordAuthentication no
+PermitRootLogin no
+X11Forwarding no

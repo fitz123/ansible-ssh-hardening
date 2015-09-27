@@ -202,7 +202,7 @@ X11UseLocalhost yes
 
 PrintMotd {{ 'yes' if ssh_print_motd else 'no' }}
 
-PrintLastLog {{ yes if ssh_print_last_log else 'no' }}
+PrintLastLog {{ 'yes' if ssh_print_last_log else 'no' }}
 
 #Banner /etc/ssh/banner.txt
 #UseDNS yes
@@ -219,7 +219,7 @@ Subsystem sftp internal-sftp -l INFO -f LOCAL6
 ## These lines must appear at the *end* of sshd_config
 Match Group sftponly
 ForceCommand internal-sftp -l INFO -f LOCAL6
-ChrootDirectory /home/{{ app }}
+ChrootDirectory /srv/www
 AllowTcpForwarding no
 AllowAgentForwarding no
 PasswordAuthentication no

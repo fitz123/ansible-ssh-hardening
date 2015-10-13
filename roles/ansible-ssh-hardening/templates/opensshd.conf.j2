@@ -219,7 +219,7 @@ Subsystem sftp internal-sftp -l INFO -f LOCAL6
 ## These lines must appear at the *end* of sshd_config
 Match Group sftponly
 ForceCommand internal-sftp -l INFO -f LOCAL6
-ChrootDirectory /srv/www
+ChrootDirectory /home/{{ app }}
 AllowTcpForwarding no
 AllowAgentForwarding no
 PasswordAuthentication no

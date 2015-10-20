@@ -211,6 +211,7 @@ PrintLastLog {{ 'yes' if ssh_print_last_log else 'no' }}
 #ChrootDirectory none
 #ChrootDirectory /home/%u
 
+{% if sftp_enabled %}
 # Configuration, in case SFTP is used
 ## override default of no subsystems
 ## Subsystem sftp /opt/app/openssh5/libexec/sftp-server
@@ -229,3 +230,4 @@ AllowAgentForwarding no
 PasswordAuthentication no
 PermitRootLogin no
 X11Forwarding no
+{% endif %}

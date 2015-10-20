@@ -220,7 +220,7 @@ Subsystem sftp internal-sftp -l INFO -f LOCAL6
 ## These lines must appear at the *end* of sshd_config
 Match Group sftponly
 ForceCommand internal-sftp -l INFO -f LOCAL6
-{% if git_enabled %}
+{% if nginx_enabled is defined and nginx_enabled %}
 ChrootDirectory /srv/www
 {% else %}
 ChrootDirectory /home/{{ app }}

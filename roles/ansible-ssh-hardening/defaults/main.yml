@@ -68,3 +68,6 @@ ssh_print_motd: false      # sshd
 
 # false to disable display of last login information
 ssh_print_last_log: false    # sshd
+
+# Disable sftp configuration by default
+sftp_enabled: false

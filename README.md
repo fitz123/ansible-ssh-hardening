@@ -20,8 +20,9 @@ This role provides secure ssh-client and ssh-server configurations.
 * ``ssh_server_weak_hmac`` - true if weaker HMAC mechanisms are required. This is usually only necessary, if older M2M mechanism need to communicate with SSH, that don't have any of the configured secure HMACs enabled.
 * ``ssh_client_weak_kex`` - true if weaker Key-Exchange (KEX) mechanisms are required. This is usually only necessary, if older M2M mechanism need to communicate with SSH, that don't have any of the configured secure KEXs enabled.
 * ``ssh_server_weak_kex`` - true if weaker Key-Exchange (KEX) mechanisms are required. This is usually only necessary, if older M2M mechanism need to communicate with SSH, that don't have any of the configured secure KEXs enabled.
-* ``ssh_ports: ['22']`` - ports to which ssh-server should listen to and ssh-client should connect to
-* ``ssh_listen_to: ['0.0.0.0']`` - one or more ip addresses, to which ssh-server should listen to. Default is empty, but should be configured for security reasons!
+* ``ssh_server_ports: ['22']`` - ports to which ssh-server should listen to
+* ``ssh_client_ports: ['22']`` - ports to which ssh-client should connect to
+* ``ssh_listen_to: ['0.0.0.0']`` - one or more ip addresses, to which ssh-server should listen to. Default is all adresseses, but should be configured to specific addresses for security reasons!
 * ``ssh_host_key_files: ['/etc/ssh/ssh_host_rsa_key', '/etc/ssh/ssh_host_dsa_key', '/etc/ssh/ssh_host_ecdsa_key']`` - Host keys to look for when starting sshd.
 * ``ssh_client_alive_interval: 600``
 * ``ssh_client_alive_count: 3``
@@ -36,7 +37,9 @@ This role provides secure ssh-client and ssh-server configurations.
 * ``ssh_allow_groups: ''`` - if specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.
 * ``ssh_print_motd`` - false to disable printing of the MOTD
 * ``ssh_print_last_log`` - false to disable display of last login information
-
+* ``sftp_enabled`` - true to enable sftp configuration
+* ``sftp_chroot_dir`` - change default sftp chroot location
+* ``ssh_client_roaming`` - enable experimental client roaming
 
 ## Example Playbook
 
